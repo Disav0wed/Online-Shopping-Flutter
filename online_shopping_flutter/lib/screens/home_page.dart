@@ -32,8 +32,9 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
                 ),
               ),
-              Container(
-                height: 60,
+              Flexible(
+                fit: FlexFit.tight,
+                flex: 1,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: Provider.of<CategoryProvider>(context)
@@ -44,6 +45,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Consumer<ItemProvider>(builder: (context, itemProvider, child) {
                 return Flexible(
+                  flex: 9,
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
