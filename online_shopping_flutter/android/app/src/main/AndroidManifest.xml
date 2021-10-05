@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ibrahimrserpici.ecommerce.online_shopping_flutter">
+    package="com.ibrahimrserpici.online_shopping_flutter">
    <application
         android:label="online_shopping_flutter"
         android:icon="@mipmap/ic_launcher">

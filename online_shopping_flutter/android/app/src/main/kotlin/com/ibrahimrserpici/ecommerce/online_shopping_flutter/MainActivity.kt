@@ -1,4 +1,4 @@
-package com.ibrahimrserpici.ecommerce.online_shopping_flutter
+package com.ibrahimrserpici.online_shopping_flutter
 
 import io.flutter.embedding.android.FlutterActivity
 
