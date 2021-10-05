@@ -26,17 +26,18 @@ class ListItem extends StatelessWidget {
         child: Column(
           children: [
             Image.network(
-              'https://mcdn01.gittigidiyor.net/67813/tn50/678134228_tn50_0.jpg',
+              itemDetail.imageUrl,
               alignment: Alignment.topCenter,
             ),
             Text(
               itemDetail.name,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
             ),
             Text(
-              itemDetail.description,
-            ),
-            Text(
-              itemDetail.price,
+              'Fiyat: ${itemDetail.price} TL',
+              style: TextStyle(
+                fontSize: 15,
+              ),
             )
           ],
         ),

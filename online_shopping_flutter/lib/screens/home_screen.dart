@@ -62,13 +62,17 @@ class HomeScreen extends StatelessWidget {
                       ),
                       itemCount: itemProvider.items.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return ListItem(ProductDetail(
+                        return ListItem(
+                          ProductDetail(
                             category: itemProvider.items[index].category,
                             name: itemProvider.items[index].name,
                             description: itemProvider.items[index].description,
                             price: itemProvider.items[index].price,
                             quantityInStock:
-                                itemProvider.items[index].quantityInStock));
+                                itemProvider.items[index].quantityInStock,
+                            imageUrl: itemProvider.items[index].imageUrl,
+                          ),
+                        );
                       },
                     ),
                   ),

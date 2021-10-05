@@ -20,11 +20,13 @@ class FirebaseHelper {
         await _fireStore.collection(category).get().then((value) => value.docs
             .map(
               (e) => ProductDetail(
-                  category: category,
-                  name: e.get('name'),
-                  description: e.get('description'),
-                  price: 'price',
-                  quantityInStock: e.get('quantity')),
+                category: category,
+                name: e.get('name'),
+                description: e.get('description'),
+                price: e.get('price'),
+                quantityInStock: e.get('quantity'),
+                imageUrl: e.get('imageUrl'),
+              ),
             )
             .toList());
     _productListProvider.items = list;
