@@ -1,9 +1,9 @@
-class ItemDetail {
+class ProductDetail {
   final String category, name, description, price, quantityInStock;
 
   List<String> imageUrl = new List.empty();
 
-  ItemDetail(
+  ProductDetail(
       {required this.category,
       required this.name,
       required this.description,
