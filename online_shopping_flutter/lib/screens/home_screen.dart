@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shoppango'),
+        title: Text('BIZZIKLATDUKKAN'),
       ),
       body: SafeArea(
         child: Padding(
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Categories',
+                    'Kategoriler',
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
                   ),
                 ),
@@ -84,9 +84,9 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Ana Sayfa'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_shopping_cart), label: 'My Cart')
+              icon: Icon(Icons.add_shopping_cart), label: 'Sepetim')
         ],
       ),
     );

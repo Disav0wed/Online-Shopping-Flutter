@@ -24,19 +24,24 @@ class ListItem extends StatelessWidget {
         elevation: 15,
         color: Colors.white70,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.network(
               itemDetail.imageUrl,
               alignment: Alignment.topCenter,
+              fit: BoxFit.fill,
             ),
             Text(
               itemDetail.name,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.longestSide / 40,
+                  fontWeight: FontWeight.w700),
             ),
             Text(
               'Fiyat: ${itemDetail.price} TL',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: MediaQuery.of(context).size.longestSide / 50,
               ),
             )
           ],

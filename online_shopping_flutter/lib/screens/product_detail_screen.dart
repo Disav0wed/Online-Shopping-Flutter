@@ -5,53 +5,79 @@ import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   static const String ROUTE_NAME = 'productDetailScreen';
-  late final ProductDetail _itemDetail;
 
   @override
   Widget build(BuildContext context) {
-    this._itemDetail = Provider.of<ProductDetailProvider>(context).item;
+    ProductDetail _productDetail;
+    _productDetail = Provider.of<ProductDetailProvider>(context).item;
     return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: EdgeInsets.all(25),
+              padding: EdgeInsets.all(15),
               child: TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 child: Icon(
                   Icons.arrow_back_ios,
-                  size: 60,
+                  size: 40,
                   color: Colors.white70,
                 ),
               ),
             ),
-            Center(
-              child: Image.network(
-                _itemDetail.imageUrl,
-                alignment: Alignment.topCenter,
-                fit: BoxFit.fill,
+            Container(
+              constraints: BoxConstraints(
+                  maxHeight: (MediaQuery.of(context).size.height / 3) * 2),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Center(
+                      child: ConstrainedBox(
+                        constraints:
+                            BoxConstraints(maxWidth: 800, maxHeight: 800),
+                        child: Image.network(
+                          _productDetail.imageUrl,
+                          alignment: Alignment.topCenter,
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            _productDetail.name,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(fontSize: 30),
+                          ),
+                          Text(
+                            'Fiyat: ${_productDetail.price} TL',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          Text(
+                            'Detay: ${_productDetail.description} asasldasldjasldjsaldjlasdjl sdksdlsjdlsjldsjldsj sldkjsldj sadjsasjdlasjdlasjdsaldjasldkjslajdlj',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Text(
-              _itemDetail.name,
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 45),
-            ),
-            Text(
-              'Fiyat: ${_itemDetail.price} TL',
-              style: TextStyle(fontSize: 30),
-            ),
-            Text(
-              'Detay: ${_itemDetail.description}',
-              style: TextStyle(fontSize: 30),
             ),
             Center(
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.fromLTRB(10, 10, 20, 0),
                 child: MaterialButton(
+                    elevation: 25,
+                    padding: EdgeInsets.fromLTRB(20, 10, 25, 10),
                     color: Colors.white70,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
@@ -59,13 +85,14 @@ class ProductDetailScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Satin Al',
+                      'Sepete Ekle',
                       style: TextStyle(
-                        fontSize: 45,
+                        fontSize: MediaQuery.of(context).size.longestSide / 30,
                       ),
                     ),
                     onPressed: () {
                       print('Satin Al');
+                      Navigator.pop(context);
                     }),
               ),
             ),
