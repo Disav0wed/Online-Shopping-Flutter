@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
             !snapshot.hasError) {
           CategoryProvider categoryProvider = CategoryProvider();
           ProductListProvider productListProvider = ProductListProvider();
-          FirebaseHelper firebaseHelper =
-              FirebaseHelper(categoryProvider, productListProvider);
-
+          FirebaseHelper firebaseHelper = FirebaseHelper.getInstance();
+          firebaseHelper.init(categoryProvider, productListProvider);
+          firebaseHelper.getCategories();
           firebaseHelper.getCategoryItems('mtb');
           return MultiProvider(
             providers: [

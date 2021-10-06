@@ -62,7 +62,7 @@ class ProductDetailScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 25),
                           ),
                           Text(
-                            'Detay: ${_productDetail.description} asasldasldjasldjsaldjlasdjl sdksdlsjdlsjldsjldsj sldkjsldj sadjsasjdlasjdlasjdsaldjasldkjslajdlj',
+                            'Detay: ${_productDetail.description}',
                             style: TextStyle(fontSize: 20),
                           ),
                         ],

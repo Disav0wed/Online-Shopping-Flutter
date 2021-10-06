@@ -2,18 +2,16 @@ import 'package:flutter/foundation.dart';
 
 class CategoryProvider extends ChangeNotifier {
   List<String> _categories = new List.empty(growable: true);
+  int _selectedCategoryIndex = 0;
 
-  List<String> get categories => _categories;
+  int get selectedCategoryIndex => _selectedCategoryIndex;
 
-  CategoryProvider() {
-    _categories.add('YENILER');
-    _categories.add('MTB');
-    _categories.add('YOL');
-    _categories.add('YARIS');
-    _categories.add('PARCALAR');
-
+  set selectedCategoryIndex(int value) {
+    _selectedCategoryIndex = value;
     notifyListeners();
   }
+
+  List<String> get categories => _categories;
 
   set categories(List<String> value) {
     _categories = value;

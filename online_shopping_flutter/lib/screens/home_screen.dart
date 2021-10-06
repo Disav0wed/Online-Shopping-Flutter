@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BIZZIKLATDUKKAN'),
+        title: Text('BISIKLET DUKKAN'),
       ),
       body: SafeArea(
         child: Padding(
@@ -39,13 +39,19 @@ class HomeScreen extends StatelessWidget {
               ),
               ConstrainedBox(
                 constraints: BoxConstraints(maxHeight: 70, minHeight: 40),
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: Provider.of<CategoryProvider>(context)
-                      .categories
-                      .map((e) => CategoryItem(name: e))
-                      .toList(),
-                ),
+                child: Consumer<CategoryProvider>(
+                    builder: (context, categoryProvider, child) {
+                  return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: categoryProvider.categories.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return CategoryItem(
+                            name: categoryProvider.categories[index],
+                            index: index,
+                            isSelected: index ==
+                                categoryProvider.selectedCategoryIndex);
+                      });
+                }),
               ),
               Consumer<ProductListProvider>(
                   builder: (context, itemProvider, child) {
@@ -83,6 +89,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.white,
+        selectedFontSize: 20,
+        unselectedFontSize: 15,
+        unselectedItemColor: Colors.grey.shade600,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Ana Sayfa'),
           BottomNavigationBarItem(

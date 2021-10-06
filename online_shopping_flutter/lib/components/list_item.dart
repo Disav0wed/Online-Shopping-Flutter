@@ -18,7 +18,7 @@ class ListItem extends StatelessWidget {
         Navigator.pushNamed(context, ProductDetailScreen.ROUTE_NAME);
       },
       child: Card(
-        margin: EdgeInsets.all(15),
+        margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 15,
@@ -29,7 +29,7 @@ class ListItem extends StatelessWidget {
             Image.network(
               itemDetail.imageUrl,
               alignment: Alignment.topCenter,
-              fit: BoxFit.fill,
+              fit: BoxFit.scaleDown,
             ),
             Text(
               itemDetail.name,
